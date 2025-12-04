@@ -34,7 +34,7 @@ Passos para enviar um pull request:
 1. **Faça um fork do repositório**
 
    ```bash
-   git clone https://github.com/seu-usuario/cubinho.git
+   git clone https://github.com/WesleyQDev/cubinho.git
    cd cubinho
    ```
 

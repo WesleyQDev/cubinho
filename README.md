@@ -10,7 +10,7 @@
 ## Instalação
 Clone esse projeto em seu computador com o comando:
 ``` sh
-git clone []
+git clone https://github.com/WesleyQDev/cubinho.git
 ```
 
 Acesse a pasta do projeto seu terminal:
