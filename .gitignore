@@ -1,3 +1,10 @@
+# Discloud
+discloud.config
+discloud*.config
+
+deploy.bat
+agno.db
+data/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
