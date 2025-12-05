@@ -2,6 +2,7 @@
 discloud.config
 discloud*.config
 
+requirements.txt
 deploy.bat
 agno.db
 data/
