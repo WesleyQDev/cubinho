@@ -1,0 +1,53 @@
+# Git
+
+.git/
+.gitignore
+
+# Python
+
+**pycache**/
+_.py[cod]
+_.pyo
+\*.pyd
+.venv/
+venv/
+.env.example
+
+# IDE
+
+.vscode/
+.idea/
+_.swp
+_.swo
+
+# Build
+
+\*.egg-info/
+dist/
+build/
+
+# Docs
+
+README.md
+CONTRIBUTING.md
+LICENSE
+docs/
+
+# Dev files
+
+deploy.bat
+discloud.config
+discloud*.config
+.discloudignore
+*.md
+
+# Cache
+
+.cache/
+.pytest_cache/
+.mypy_cache/
+
+# Lock files (Discloud usa requirements.txt)
+
+uv.lock
+poetry.lock

@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 import os
 import random
 import logging
+import tomllib
 from agent import llm_response
 
 load_dotenv()
@@ -15,6 +16,20 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+
+def get_version() -> str:
+    """Lê a versão do pyproject.toml."""
+    try:
+        pyproject_path = os.path.join(os.path.dirname(__file__), "pyproject.toml")
+        with open(pyproject_path, "rb") as f:
+            data = tomllib.load(f)
+        return data.get("project", {}).get("version", "desconhecida")
+    except Exception:
+        return "desconhecida"
+
+
+VERSION = get_version()
 
 
 def split_message(text: str, limit: int = 1900) -> list[str]:
@@ -169,7 +184,16 @@ async def help_command(interaction: discord.Interaction):
         inline=False
     )
     
-    embed.set_footer(text="Feito com 💜 para estudantes de Engenharia de Software")
+    embed.add_field(
+        name="🌐 Open Source",
+        value=(
+            "Cubinho é **código aberto**! 🎉\n"
+            "Contribua em: [github.com/WesleyQDev/cubinho](https://github.com/WesleyQDev/cubinho)"
+        ),
+        inline=False
+    )
+    
+    embed.set_footer(text=f"v{VERSION} • Feito com 💜 para estudantes de Engenharia de Software")
     
     await interaction.response.send_message(embed=embed)
 
