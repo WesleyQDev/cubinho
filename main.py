@@ -109,9 +109,10 @@ async def on_message(msg: discord.Message):
         return
     
 # Slash Commands
-@bot.tree.command(name="hello", description="Diz olá!")
+@bot.tree.command(name="ping", description="ping")
 async def hello(interaction: discord.Interaction):
-    await interaction.response.send_message('Hello world!')
+    latency_ms = round(bot.latency * 1000)
+    await interaction.response.send_message(f'Pong! {latency_ms} ms')
 
 
 @bot.tree.command(name="help", description="Mostra todos os comandos disponíveis")
