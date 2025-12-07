@@ -108,38 +108,6 @@ async def on_message(msg: discord.Message):
         await bot.process_commands(msg)
         return
     
-    # Resposta aleatória no canal específico (10% de chance)
-    if msg.channel.id == RANDOM_RESPONSE_CHANNEL and random.random() < 0.1:
-        async with msg.channel.typing():
-            # Busca as últimas 10 mensagens para contexto
-            messages = []
-            async for message in msg.channel.history(limit=10):
-                if not message.author.bot:
-                    messages.append(f"{message.author.display_name}: {message.content}")
-            
-            # Inverte para ordem cronológica
-            messages.reverse()
-            
-            # Monta o contexto da conversa
-            context = "\n".join(messages)
-            prompt = f"""Você está em um chat do Discord. Aqui está o histórico recente da conversa com os nomes dos participantes:
-
-{context}
-
-Responda de forma natural e descontraída à conversa, considerando o contexto e quem disse o quê. Seja breve e informal."""
-            
-            response = llm_response(prompt, str(msg.author.id))
-            if response:
-                parts = split_message(response)
-                for i, part in enumerate(parts):
-                    if i == 0:
-                        await msg.reply(part)
-                    else:
-                        await msg.channel.send(part)
-    
-    await bot.process_commands(msg)
-
-
 # Slash Commands
 @bot.tree.command(name="hello", description="Diz olá!")
 async def hello(interaction: discord.Interaction):
