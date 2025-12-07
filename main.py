@@ -76,7 +76,7 @@ async def on_ready():
 
     activity_watching = discord.Activity(
         type=discord.ActivityType.watching,
-        name='Engenheiro de Software'
+        name='Engenharia de Software'
     )
 
     await bot.change_presence(activity=activity_watching, status=discord.Status.online)
